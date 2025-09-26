@@ -24,43 +24,34 @@ def main():
                 desk=["_","_","_","_","_","_","_","_","_"]
                 while not is_finished:
                     clear_screen()
-                    
-                    x_win = check_win(x_turns)
-                    o_win = check_win(o_turns)
-                    is_finished = x_win or o_win
-                    
+                   
+
                     print(desk[0],desk[1],desk[2])
                     print(desk[3],desk[4],desk[5])
                     print(desk[6],desk[7],desk[8])
-
+                   
                     if turns_counter %2==1:
                         turn=int(input("Введите клетку: "))
                         desk[turn-1]="X"
-                        x_turns.append(turn)
+                        x_turns.append(turn-1)
                     else:
                         turn=int(input("Введите клетку: "))
                         desk[turn-1]="0"
-                        o_turns.append(turn)
+                        o_turns.append(turn-1)
+                    x_win = check_win(x_turns)
+                    o_win = check_win(o_turns)
+                    is_finished = x_win or o_win 
                     turns_counter+=1
+                clear_screen()
+                print(desk[0],desk[1],desk[2])
+                print(desk[3],desk[4],desk[5])
+                print(desk[6],desk[7],desk[8])
+                if x_win:
+                    print("Победили X")
+                else:
+                    print("Победили 0")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                 
 
 
 
